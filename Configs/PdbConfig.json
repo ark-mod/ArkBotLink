@@ -1,0 +1,11 @@
+{
+  "structures": [
+  "APrimalWorldSettings"
+  ],
+  "functions": [
+  ],
+  "globals": [  
+    "GServerMajorVersion",
+    "GServerMinorVersion"
+  ]
+}

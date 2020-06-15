@@ -3,6 +3,9 @@
 #include "Hooks.h"
 #include "Timers.h"
 #include "CrossServerChat.h"
+#include "DestroyDinosForTeamId.h"
+#include "DestroyStructuresForTeamId.h"
+#include "DestroyStructuresForTeamIdAtPos.h"
 #include <fstream>
 
 #pragma comment(lib, "ArkApi.lib")
@@ -99,6 +102,10 @@ void Load()
 	//}
 
 	commands.AddOnChatMessageCallback("ChatMessageCallback", &ChatMessageCallback);
+
+	commands.AddRconCommand("DestroyAllStructuresForTeamId", &DestroyAllStructuresForTeamIdRconCommand);
+	commands.AddRconCommand("DestroyStructuresForTeamIdAtPosition", &DestroyStructuresForTeamIdAtPositionRconCommand);
+	commands.AddRconCommand("DestroyDinosForTeamId", &DestroyDinosForTeamIdRconCommand);
 }
 
 void Unload()
@@ -114,6 +121,10 @@ void Unload()
 	Timers::Unload();
 
     ArkApi::GetCommands().RemoveOnChatMessageCallback("ChatMessageCallback");
+
+	ArkApi::GetCommands().RemoveRconCommand("DestroyAllStructuresForTeamId");
+	ArkApi::GetCommands().RemoveRconCommand("DestroyStructuresForTeamIdAtPosition");
+	ArkApi::GetCommands().RemoveRconCommand("DestroyDinosForTeamId");
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)

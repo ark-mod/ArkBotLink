@@ -301,3 +301,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/libs/SignalR-Client-Cpp/cpprest_2_10.lib

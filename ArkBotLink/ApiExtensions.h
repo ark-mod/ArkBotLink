@@ -20,4 +20,13 @@ namespace ArkExtensions
 		float& LongitudeOriginField() { return *GetNativePointerField<float*>(this, "APrimalWorldSettings.LongitudeOrigin"); }
 		float& LatitudeOriginField() { return *GetNativePointerField<float*>(this, "APrimalWorldSettings.LatitudeOrigin"); }
 	};
+
+	inline bool IsPointInside2dCircle(FVector point, float circleX, float circleY, float circleRadius)
+	{
+		long double x = point.X - circleX;
+		long double y = point.Y - circleY;
+
+		long double distancesq = x * x + y * y;
+		return distancesq < circleRadius * circleRadius;
+	}
 }
